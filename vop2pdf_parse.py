@@ -19,7 +19,6 @@ def parse_arguments():
     parser = argp()
     parser.add_argument("source_file", help="File with input clients", type=file_path)
     parser.add_argument("zip_file", help="Zip of RevTelecom data files to convert", type=file_path)
-    parser.add_argument("nextcloud_user", help="User to execute the nextcloud sync command", type=str)
     parser.add_argument("-d", "--debug", help="Enables debug prints", action="store_true")
     parser.add_argument("-o", "--output_dir",help="Output directory, defaults to 'zip file name'_out")
     args = parser.parse_args()

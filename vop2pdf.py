@@ -140,10 +140,3 @@ if __name__ == "__main__" :
 
     nextcloud_path = "/var/www/html/nextcloud/occ"
 
-    # ADAPTER SI BESOIN
-    if (args.nextcloud_user):
-        command = "sudo -u www-data php7.4 {} files:scan {}".format(nextcloud_path, args.nextcloud_user)
-        print_debug("Command would be : {}".format(command))
-        # os.execve(command)
-    #if user:
-        # sudo -u www-data php7.4 /var/www/html/nextcloud/occ files:scan CDR
