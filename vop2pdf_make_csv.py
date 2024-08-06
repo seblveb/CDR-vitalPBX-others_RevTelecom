@@ -1,3 +1,5 @@
+
+# native
 import csv
 from datetime import datetime as dt
 
@@ -9,3 +11,4 @@ def make_csv(title, date: dt, data_daily, data_total, out) :
         for i in range(len(date)):
             line = [date[i], data_daily[i], data_total[i]]
             writer.writerow(line)
+

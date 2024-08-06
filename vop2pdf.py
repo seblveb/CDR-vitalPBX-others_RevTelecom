@@ -33,9 +33,10 @@ def create_outputs(infos: list, conso: dict, total: dict, horodate: dict):
     full_date = [dt.fromtimestamp(x * 21600, tz=timezone.utc).replace(tzinfo=None)  for x in horodate.keys()]
 
     # Defines date markers to base the graph title on
-    month_year = full_date[0].strftime("%B %Y").capitalize()
+    month_year = dt.strptime(dir.split('/')[-1], "%Y-%m").strftime("%B %Y").capitalize()
 
-    out = "{}/{}/{}".format(args.output_dir, infos[1], month_year, infos[2], infos[0], infos[3])
+    out = "{}/{}/{}".format(args.output_dir, infos[1], month_year)
+
     # Creates output directory
     Path(out).mkdir(parents=True, exist_ok=True)
 
@@ -138,5 +139,4 @@ if __name__ == "__main__" :
     for f in files :
         input_formatting(f, source)
 
-    nextcloud_path = "/var/www/html/nextcloud/occ"
 

@@ -1,6 +1,8 @@
+# native
+from math import ceil, log
+
 #imported
 from matplotlib import pyplot as plt
-from math import ceil, log
 
 def power_log(x):
     return 2**(ceil(log(x, 2)))
