@@ -11,7 +11,7 @@ def power_log(x):
 def make_graph(title, horodating, data_daily, data_total, save_path):
 
     # Crée un subplot pour pouvoir instancier deux mesures sur l'axe Y
-    fig, ax1 = plt.subplots(figsize=(len(data_daily) / 5, 12))
+    fig, ax1 = plt.subplots(figsize=((len(data_daily) / 5) + 10, 12))
     plt.title(title)
 
     # Premier label vertical | axe Y

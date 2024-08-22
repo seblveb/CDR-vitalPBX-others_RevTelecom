@@ -59,14 +59,12 @@ def process_file(number: str, mobile_files: list[str], data_files: list[str], ma
             data_margin = round(total / ((100 - margin) * 0.01), 2)
             to_write.append(data_margin)
 
-    writing = to_write[3] + to_write[4]
+    line_total = to_write[3] + to_write[4]
 
-    print(writing)
-
-    if writing != 0 :
+    if line_total != 0 :
         writer.writerow(to_write)
 
-    return writing
+    return line_total
 
 
 if __name__ == '__main__':
@@ -93,7 +91,6 @@ if __name__ == '__main__':
 
     # Marge à calculer
     margin = int(args.margin) if args.margin else 36
-
     # Récupère la date via le dossier dézipé
     date = dir.split('/')[-1]
     out_dir = args.output_dir if args.output_dir else "out"
