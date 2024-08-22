@@ -6,3 +6,4 @@ data_repertoire
 old
 graphs
 **/*test*
+.pytest*

@@ -4,6 +4,7 @@ from math import ceil, log
 #imported
 from matplotlib import pyplot as plt
 
+# Retourne la puissance de 2 la plus proche pour que le graph soit bien alligné
 def power_log(x):
     return 2**(ceil(log(x, 2)))
 
