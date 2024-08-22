@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 
 REF=$1
 INPUT=$2
