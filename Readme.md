@@ -10,6 +10,8 @@ Ce dépot contient :
 
 ## Sommaire
 
+- [Vop2X](#vop2x)
+  - [Sommaire](#sommaire)
   - [Prérequis](#prérequis)
   - [VOP2PDF](#vop2pdf)
       - [- Utilisation](#--utilisation)
@@ -26,7 +28,7 @@ Ce dépot contient :
 1. Un fichier de référence, base de données contenant tous les numéros à traiter (ex: Base_de_donnees_mobiles_data.csv)
 2. Un fichier zip des cdr exporté directement de VOP (ex: 2024-01.zip)
 3. (optionnel) Un dossier ou exporter
-
+4. (autoscript) Des crédentiels de connection en ftp pour récupérer les fichiers d'exports
 
 ## VOP2PDF
 
@@ -59,12 +61,14 @@ Analyse tous les fichiers et génère, pour chaque client, un fichier regroupant
 #### - Utilisation
 
 ```
-$ ./auto_script ref zip [output]
+$ ./auto_script ref zip_dir [output]
 # voir arguments dans prérequis
 ```
 
 #### - Description
 
 Execute les deux programmes avec les arguments prodigués
+
+zip_dir correspond au dossier contenant les fichiers zip à extraire, le zip sera déterminé automatiquement en fonction de la date (date d'un mois avant l'execution)
 
 Si pas d'output précisée, l'output par défaut est utilisée ("out" ou autre dossier au cas par cas)

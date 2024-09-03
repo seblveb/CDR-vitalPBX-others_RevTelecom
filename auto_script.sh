@@ -12,10 +12,9 @@ print_error () {
 is_file_valid () {
     if [[ ! -f $1 || $1 != *$2 ]]; then
         print_error "$1 invalid input file path or extension"
-        exit 2
+        retun 2
     fi
 }
-
 
 if [ "$1" == "-h" ]; then
     echo "Usage:"
@@ -43,12 +42,15 @@ elif [ -z $INPUT ]; then
 fi
 
 is_file_valid $REF ".csv"
-is_file_valid $INPUT ".zip"
+
+FILE=$(echo "$INPUT/$(date --date='-1 month' +"%Y-%m.zip")")
+FOLDER=$(echo "$INPUT/$(date --date='-1 month' +"%Y-%m")")
 
 if [ -z $OUTPUT ]; then
     OUTPUT="out_bash"
     # OUTPUT="/media/bigpart/data/CDR/files/CRD-Client"
 fi
 
-./vop2pdf.py $REF $INPUT -o $OUTPUT
-./vop2csv.py $REF $INPUT -o $OUTPUT
+# ajouter chemin absolu (/usr/X/vop2pdf)
+./vop2pdf.py $REF $FILE -o $OUTPUT
+./vop2csv.py $REF $FILE -o $OUTPUT

@@ -36,12 +36,14 @@ def make_graph(title, horodating, data_daily, data_total, save_path):
     color = '#0097ff'
     coeff = power_log(data_total[-1]/ 2000) * 2000
     ax2.set_ylim(top=coeff if coeff >= 2000 else 2000)
-    ax2.set_ylabel('Consommation totale (Mo)', color=color)  # we already handled the x-label with ax1
+    ax2.set_ylabel('Consommation totale (Mo)', color=color)
     ax2.plot(horodating, data_total, color=color, linewidth=1)
     ax2.tick_params(axis='y', labelcolor=color)
     ax2.grid(axis='y')
 
-    fig.tight_layout()  # otherwise the right y-label is slightly clipped
+    fig.tight_layout()
 
-    plt.savefig("{}/{}".format(save_path, title))
+    plt.savefig("{}/{}.{}".format(save_path, title, extension))
     plt.close()
+
+extension = "svg"

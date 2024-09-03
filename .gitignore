@@ -1,9 +1,15 @@
-sample
+# Project dependant
 zip
-out*
+sample
 original*
+out*
 data_repertoire
-old
 graphs
+
+# Backups
+back
+
+# Undesirable
 **/*test*
 .pytest*
+__pycache__
