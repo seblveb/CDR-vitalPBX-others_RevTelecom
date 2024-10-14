@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 
+PROJ_LOC="/usr/Vop2x/"
 REF_FILE=$1
 OUT_FOLD=$2
 ZIP_FILE=$(date --date='-1 month' +"%Y-%m.zip" | tr -d '\n')
-ZIP_FOLD="zip/"
+ZIP_FOLD="$PROJ_LOC/zip/"
 
 print_error () {
     echo "Error: $1"
@@ -51,11 +52,10 @@ wget "ftp://semperco:Eez2phaa@45.81.204.47/$ZIP_FILE" -P $ZIP_FOLD
 
 # Fichier output pour clients, définissable pour débug
 if [ -z $OUT_FOLD ]; then
-    OUT_FOLD="out_default/"
-    # OUT_FOLD="/media/bigpart/data/CDR/files/CRD-Client"
+    OUT_FOLD="/media/bigpart/data/CDR/files/CRD-Client"
 fi
 
 # Commandes Vop2x (adaptables)
-./vop2pdf.py $REF_FILE $ZIP_FOLD$ZIP_FILE -d -o $OUT_FOLD
-./vop2csv.py $REF_FILE $ZIP_FOLD$ZIP_FILE -d -o $OUT_FOLD
+$PROJ_LOC/vop2pdf.py $REF_FILE $ZIP_FOLD$ZIP_FILE -d -o $OUT_FOLD
+$PROJ_LOC/vop2csv.py $REF_FILE $ZIP_FOLD$ZIP_FILE -d -o $OUT_FOLD
 
